@@ -1,0 +1,39 @@
+public class Book extends Item {
+
+    private long isbnNumber;
+    private String author;
+    
+    public Book() {
+        this.isbnNumber = 0;
+        this.author = "";
+    }
+
+    public Book(String title, long isbnNumber, String author) {
+        super(title);
+        this.isbnNumber = isbnNumber;
+        this.author = author;
+    }
+
+    public long getIsbnNumber() {
+        return isbnNumber;
+    }
+
+    public void setIsbnNumber(long isbnNumber) {
+        this.isbnNumber = isbnNumber;
+    }
+
+    public String getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(String author) {
+        this.author = author;
+    }
+    
+    @Override
+    public String getListing() {
+
+        return "Book Name - " + getTitle() + "\nAuthor - " + author + "\nISBN # - " + isbnNumber;
+    }
+
+}
