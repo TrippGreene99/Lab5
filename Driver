@@ -1,0 +1,44 @@
+import java.util.Scanner;
+
+public class Driver {
+
+    public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+        Item[] items = new Item[5];//declare array
+
+        for (int i = 0; i < items.length; i++) {
+
+            System.out.print("Please enter B for Book or P for Periodical: ");
+            String choice = scan.nextLine();
+            if (choice.equalsIgnoreCase("b")) {
+
+                System.out.print("Please enter the name of book: ");
+                String bookName = scan.nextLine();
+                System.out.print("Please enter the author of book: ");
+                String author = scan.nextLine();
+                System.out.print("Please enter the ISBN of the book: ");
+                long isbn = scan.nextLong();
+                scan.nextLine();
+                items[i] = new Book(bookName, isbn, author);
+            } else {
+
+                System.out.print("Please enter the name of Periodical: ");
+                String pName = scan.nextLine();
+                System.out.print("Please enter issue number: ");
+                int issueNumber = scan.nextInt();
+                scan.nextLine();
+                items[i] = new Periodical(pName, issueNumber);
+            }
+        }
+
+        scan.close();//close scanner
+
+        System.out.println("Your Items: ");
+        for (int i = 0; i < items.length; i++) {
+
+            System.out.println(items[i].getListing());
+            System.out.println();
+        }
+    }
+
+}
